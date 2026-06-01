@@ -1,0 +1,111 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{listings}
+\usepackage{courier}
+
+% Dark gray header
+\definecolor{headergray}{RGB}{120,120,120}
+
+% Code formatting
+\lstset{
+    basicstyle=\ttfamily\small,
+    frame=single,
+    breaklines=true,
+    columns=fullflexible
+}
+
+\begin{document}
+
+% Header
+\begin{center}
+    {\color{headergray}\large\textbf{IEEE CEK Online Bootcamp Day 1}}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+    {\LARGE\textbf{Traffic Signal System}}\\[0.5cm]
+    {\large Author: Albert Joy Mambrakaran}
+\end{center}
+
+\vspace{0.8cm}
+
+\section*{Objective}
+
+Design and simulate a fully functional traffic signal system using an Arduino Uno, LEDs, and appropriate resistors. The traffic signal operates in the following sequence:
+
+\begin{itemize}
+    \item Red signal active for 3 seconds
+    \item Yellow signal active for 1 second
+    \item Green signal active for 3 seconds
+\end{itemize}
+
+The sequence repeats continuously without interruption.
+
+\section*{Circuit Connections}
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{LED} & \textbf{Arduino Pin} & \textbf{Resistor} \\
+\hline
+Red LED & D8 & 220 $\Omega$ \\
+\hline
+Yellow LED & D9 & 220 $\Omega$ \\
+\hline
+Green LED & D10 & 220 $\Omega$ \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{0.5cm}
+
+The anode of each LED is connected to its respective Arduino digital pin through a 220 $\Omega$ resistor. All cathodes are connected to the common ground (GND) of the Arduino Uno.
+
+\section*{Arduino Program}
+
+\begin{lstlisting}[language=C++]
+const int redLED = 13;
+const int yellowLED = 12;
+const int greenLED = 11;
+
+void setup() {
+  pinMode(redLED, OUTPUT);
+  pinMode(yellowLED, OUTPUT);
+  pinMode(greenLED, OUTPUT);
+}
+
+void loop() {
+
+  // Red ON for 3 seconds
+  digitalWrite(redLED, HIGH);
+  digitalWrite(yellowLED, LOW);
+  digitalWrite(greenLED, LOW);
+  delay(3000);
+
+  // Yellow ON for 1 second
+  digitalWrite(redLED, LOW);
+  digitalWrite(yellowLED, HIGH);
+  digitalWrite(greenLED, LOW);
+  delay(1000);
+
+  // Green ON for 3 seconds
+  digitalWrite(redLED, LOW);
+  digitalWrite(yellowLED, LOW);
+  digitalWrite(greenLED, HIGH);
+  delay(3000);
+}
+\end{lstlisting}
+
+\section*{Working Principle}
+
+The Arduino controls three LEDs representing the red, yellow, and green traffic lights. The red LED remains ON for 3 seconds, followed by the yellow LED for 1 second, and then the green LED for 3 seconds. After completing the sequence, the program returns to the red signal and continues indefinitely, thereby simulating the operation of a basic traffic signal system.
+
+\section*{Result}
+
+The traffic signal system was successfully designed and simulated in Tinkercad. The LEDs operated according to the specified timing sequence and continuously repeated the traffic light cycle without interruption.
+
+\end{document}
