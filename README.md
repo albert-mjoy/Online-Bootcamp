@@ -1,1 +1,3 @@
 # Online-Bootcamp
+#Day 1
+Day 1 of the IEEE CEK Online Bootcamp focused on designing and simulating a basic Traffic Signal System using Arduino Uno in Tinkercad. The project demonstrates fundamental concepts of embedded systems, digital output control, and circuit simulation. Three LEDs representing red, yellow, and green traffic signals were connected to the Arduino through current-limiting resistors and programmed to operate in a continuous sequence. The timing cycle consisted of Red (3 seconds), Yellow (1 second), and Green (3 seconds), accurately mimicking a real-world traffic signal. This project provided hands-on experience in Arduino programming, circuit design, and simulation-based testing and validation.
